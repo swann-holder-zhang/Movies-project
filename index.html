@@ -45,12 +45,9 @@
         100% { transform: rotate(360deg); }
     }
 </style>
-<!--page loading-->
-<div id = "onload">
-<h2>Loading...</h2>
-    <div class="loader">
-    </div>
-</div>
+
+
+
 
 
 
@@ -84,13 +81,42 @@
     <input type="text" class="form-control" id="input-movie" placeholder="What is the name of the movie?">
         <button type="submit" id="btn-1"></button>
     </form>
->>>>>>> 0d227bba05e1792b151299ac6259b88b71f780fc
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Movies</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Movies results here....
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Exit</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>>
 
     <!-- TODO Make a responsive hero section, I need my linkedIn profile pic and the Iphone img asset  -->
     <main id="main w-100 h-100">
-        <section class="hero container debug-ol">
+        <section class="hero container debug-ol ">
 
 
+            <!--page loading-->
+            <div id = "onload">
+                <h2>Loading...</h2>
+                <div class="loader" >
+                </div>
+            </div>
 
 
 
@@ -192,6 +218,9 @@
     <script src="js/api.js"></script>
     <script src="js/header.js"></script>
     <script src="js/index.js"></script>
+
+
+
 
 </body>
 
