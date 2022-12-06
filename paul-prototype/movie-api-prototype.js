@@ -2,7 +2,6 @@
 * Any prerequisite functions/keys/variables
 * */
 
-$( document ).ready(function() {
 alert("I am alive")
     const movieKey = MOVIE_API; //
     const url = "https://invented-fantastic-sense.glitch.me/movies";
@@ -186,4 +185,3 @@ alert("I am alive")
 
 
 
-});

@@ -162,6 +162,21 @@ header {
   }
 }
 /* End of media max-width 820px */
+.navbar {
+  width: 80%;
+}
+
+.search-movies {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.s-bar {
+  width: 350px;
+}
+
 .footer {
   padding: var(--footer-padding);
   width: 100%;
