@@ -57,8 +57,7 @@ alert("I am alive")
             const {Title, Year, Poster, imdbID, Type} = data[i]
             html +=
                 `<div class="container" id="parent">
-<!--                         <button type="button" data-dismiss="alert" class="btn-close remove-card" id="delete" onclick="deleteMovie(event);"></button> <br>-->
-                         <button type="button"  class="btn-close remove-card" id="delete" ></button> <br>
+                   <button type="button" data-dismiss="alert" class="btn-close remove-card" id="delete" onclick="deleteMovie(event);"></button> <br>
                          <img src="${Poster}">
                          <p>Movie name: ${Title}</p>
                          <p>Movie Year: ${Year}</p>
@@ -163,9 +162,6 @@ alert("I am alive")
     //     )
 
 
-    function deleteMe (){
-
-    }
 // let deleteMe = document.getElementsByElement('delete');
 // deleteMe.addEventListener('click', deleteMe)
 
