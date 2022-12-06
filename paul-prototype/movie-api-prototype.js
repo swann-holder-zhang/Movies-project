@@ -6,12 +6,8 @@
     const movieKey = MOVIE_API; //
     const url = "https://invented-fantastic-sense.glitch.me/movies";
 
-
-    /*PART (1) -button to get movies from omdbapi
-    * add search button
-    * put an id on the search bar and get the input va
-    *
-    * */
+//This gets the live update of the POST request
+    fetch(url).then(res => res.json()).then(data => console.log(data));
 
 //Btn search by either value of the search, title, year, or plot.
     $('#submit-btn').click((event) => {
@@ -21,6 +17,7 @@
     });
 
 
+//+++++++++++++++++++++++++++++++++++++++++++++GET ME +++++++++++++++++++++++++++++++++++++++++++++
 
 
     const getMovies = (search) => {
@@ -38,6 +35,10 @@
             })
     }
 
+
+
+
+
     let append = function (data) {
         let html = ``
         for (let i in data) {
@@ -46,27 +47,55 @@
             html +=
                 `<div class="container" id="parent">
                          <button type="button" class="btn-close remove-card" id="delete" onclick="deleteMovie(event)"></button> <br>
-<!--                         <button type="button"  class="btn-close remove-card" id="delete" ></button> <br>-->
                          <img src="${Poster}">
                          <p>Movie name: ${Title}</p>
                          <p>Movie Year: ${Year}</p>
                          </div>`;
 
-
         }
         return html
-
-
     }
 
+//+++++++++++++++++++++++++++++++++++++++++++++POST ME+++++++++++++++++++++++++++++++++++++++++++++
+
+function postMovie (movie) {
+    movie.preventDefault()
+
+    console.log("hello")
+    // movie.preventDefault()
+    const movieObj = {title: `${movie.target[0].value}`, body: '2'}
+    const option =   {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(movieObj),
+    };
+    console.log('post option', option)
+    fetch(url, option)
+        .then(response => response.json())
+        .then(function (data) {
+            alert('Post successful')
+            console.log('data', data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+
+}
+let post= document.getElementById('new-movie')
+post.addEventListener('submit', postMovie)
+
+//+++++++++++++++++++++++++++++++++++++++++++++PUT ME+++++++++++++++++++++++++++++++++++++++++++++
 
 
-// function putMovie (movie) {
+
+// function putMovie (id) {
 //     movie.preventDefault()
 //
 //     console.log("hello")
 //     // movie.preventDefault()
-//     const movieObj = {title: "Hello", body: '1'}
+//     const movieObj = {title: "Hello", body: '3'}
 //     const option =   {
 //         method: 'PUT',
 //         headers: {
@@ -75,7 +104,7 @@
 //         body: JSON.stringify(movieObj),
 //     };
 //     console.log('put option', option)
-//     fetch(url, option)
+//     fetch(`https://invented-fantastic-sense.glitch.me/movies/${id}`, option)
 //         .then(response => response.json())
 //         .then(function (data) {
 //             alert('movie was good to watch')
@@ -86,14 +115,18 @@
 //         })
 //
 // }
+//
+//
 // let inputMovie= document.getElementById('new-movie')
 // inputMovie.addEventListener('submit', putMovie)
 
+//+++++++++++++++++++++++++++++++++++++++++++++DELETE ME+++++++++++++++++++++++++++++++++++++++++++++
 
-        function deleteMovie(event) {
-            event.preventDefault()
+        function deleteMovie(search) {
+            search.preventDefault()
             console.log("hello")
             const movieObj = {title: "Hello", body: '1'}
+            const url = "https://invented-fantastic-sense.glitch.me/movies/"
             const option = {
                 method: 'DELETE',
                 headers: {
@@ -102,8 +135,8 @@
                 body: JSON.stringify(movieObj),
             };
             console.log('delete option', option)
-            // fetch(`https://invented-fantastic-sense.glitch.me/movies/${id}`, option)
-            fetch(url, option)
+            fetch(`${url}${search}`, option)
+            // fetch(url, option)
                 .then(response => response.json())
                 .then(function (data) {
                     alert('movie was deleted')
