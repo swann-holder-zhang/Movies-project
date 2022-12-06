@@ -2,8 +2,7 @@
 * Any prerequisite functions/keys/variables
 * */
 
-$( document ).ready(function() {
-alert("I am alive")
+// $( document ).ready(function() {
     const movieKey = MOVIE_API; //
     const url = "https://invented-fantastic-sense.glitch.me/movies";
 
@@ -19,20 +18,9 @@ alert("I am alive")
         event.preventDefault();
         let search = $('#search').val()
         getMovies(search);
-
     });
 
 
-    /*PART (2)
-    * maybe create a function that renders a loading animation
-    *BONUS
-     */
-
-
-    /*PART (3)
-    * Fetch API to derive Search results
-    *
-    * */
 
 
     const getMovies = (search) => {
@@ -57,8 +45,8 @@ alert("I am alive")
             const {Title, Year, Poster, imdbID, Type} = data[i]
             html +=
                 `<div class="container" id="parent">
-<!--                         <button type="button" data-dismiss="alert" class="btn-close remove-card" id="delete" onclick="deleteMovie(event);"></button> <br>-->
-                         <button type="button"  class="btn-close remove-card" id="delete" ></button> <br>
+                         <button type="button" class="btn-close remove-card" id="delete" onclick="deleteMovie(event)"></button> <br>
+<!--                         <button type="button"  class="btn-close remove-card" id="delete" ></button> <br>-->
                          <img src="${Poster}">
                          <p>Movie name: ${Title}</p>
                          <p>Movie Year: ${Year}</p>
@@ -71,39 +59,6 @@ alert("I am alive")
 
     }
 
-
-//
-    /*PART (3)
-    * maybe create a function that changes the method that updates options.
-    *
-     */
-
-
-// function option (method){
-//   const option =   {
-//         method: `${method.stringify()}`,
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(),
-//     };
-// }
-
-    /* Part (4)
-
-    * POST/DELETE request
-    *
-    * */
-// const postDeleteMovies = (search) => {
-//     fetch(url, option)
-//         .then(response => response.json())
-//         .then(function (data) {
-//             console.log('data', data);
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         })
-// }
 
 
 // function putMovie (movie) {
@@ -134,60 +89,40 @@ alert("I am alive")
 // let inputMovie= document.getElementById('new-movie')
 // inputMovie.addEventListener('submit', putMovie)
 
-    // $('#delete').on("click",
-    //     function deleteMovie(event) {
-    //         alert("hello")
-    //         event.preventDefault()
-    //         console.log("hello")
-    //         const movieObj = {title: "Hello", body: '1'}
-    //         const option = {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(movieObj),
-    //         };
-    //         console.log('delete option', option)
-    //         fetch(url, option)
-    //             .then(response => response.json())
-    //             .then(function (data) {
-    //                 alert('movie was deleted')
-    //                 console.log(' delete data', data);
-    //             })
-    //             .catch((error) => {
-    //                 alert('could not delete');
-    //                 console.log(error);
-    //             })
-    //
-    //     }
-    //     )
 
+        function deleteMovie(event) {
+            event.preventDefault()
+            console.log("hello")
+            const movieObj = {title: "Hello", body: '1'}
+            const option = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(movieObj),
+            };
+            console.log('delete option', option)
+            // fetch(`https://invented-fantastic-sense.glitch.me/movies/${id}`, option)
+            fetch(url, option)
+                .then(response => response.json())
+                .then(function (data) {
+                    alert('movie was deleted')
+                    console.log(' delete data', data);
+                })
+                .catch((error) => {
+                    alert('could not delete');
+                    console.log(error);
+                })
 
-    function deleteMe (){
-
-    }
-// let deleteMe = document.getElementsByElement('delete');
-// deleteMe.addEventListener('click', deleteMe)
-
-    /*
-    * NOTES:
-    *
-    * (1)  API Follow Along
-    * https://www.youtube.com/watch?v=67eJTr6_ylY
-    *
-    * (2) API WEBSITE
-    * https://www.omdbapi.com/
-    *
-    *
-    * (4) Maybe as a substitute for background
-    * https://codepen.io/sarazond/pen/LYGbwj
-    *
-    * (5) removing once clicked
-    https://www.youtube.com/watch?v=0aWGMxrdUZE*
-    * */
+        }
 
 
 
 
 
-});
+
+
+
+
+
+// });
