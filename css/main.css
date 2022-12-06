@@ -30,6 +30,10 @@ a {
   color: var(--link-font-color);
 }
 
+a:hover {
+  color: #fff;
+}
+
 header {
   width: 100%;
   height: 72px;
@@ -199,6 +203,10 @@ header {
 
 .debug-bg {
   background-color: blue;
+}
+
+.tst {
+  background: red;
 }
 
 /*# sourceMappingURL=main.css.map */
