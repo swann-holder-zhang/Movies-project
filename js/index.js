@@ -3,21 +3,19 @@
 
 
 
-    // var delay = 2000; // delay time in milliseconds
-    //
-    // var timeoutId = setTimeout(function () {
-    //     alert('Here is a delayed hello!');
-    // }, delay);
+    var delay = 2000; // delay time in milliseconds
 
-// to cancel the timeout, you can call
-// clearTimeout(timeoutId);
-// prior to the delay expiring
+    var timeoutId = setTimeout(function () {
+        window.onload = function () {
+            console.log("works")
+            let loader = document.getElementById("onload");
+            loader.style.display = 'none';
+        }
+        ;
+    }, delay);
 
-    window.onload = function () {
-        console.log("works")
-        let loader = document.getElementById("onload");
-        loader.style.display = 'none';
-    }
+
+
 
 
     const movieKey = MOVIE_API;
