@@ -36,32 +36,34 @@
     }
 
 
-
-
-
     let append = function (data) {
         let html = ``
         for (let i in data) {
             console.log(" Get data: ", data[i])
             const {Title, Year, Poster, imdbID, Type} = data[i]
             html +=
-                `<div class="container" id="parent">
-                         <button type="button" class="btn-close remove-card" id="delete" onclick="deleteMovie(event)"></button> <br>
+                `<div class="container parent${i++}" id="parent${i++}">
+                         <button type="button" class="btn-close remove-card" id="delete" onclick="deleteMovie(event);parentNode.remove()"></button> <br>
                          <img src="${Poster}">
                          <p>Movie name: ${Title}</p>
                          <p>Movie Year: ${Year}</p>
+                         <p>Movie ID: ${imdbID}</p>
+                         <p>Movie type: ${Type}</p>
+                         
                          </div>`;
 
         }
         return html
     }
 
+
+
 //+++++++++++++++++++++++++++++++++++++++++++++POST ME+++++++++++++++++++++++++++++++++++++++++++++
 
 function postMovie (movie) {
     movie.preventDefault()
-
-    console.log("hello")
+//TODO: get the length of database (data)
+//     console.log("hello")
     // movie.preventDefault()
     const movieObj = {title: `${movie.target[0].value}`, body: '2'}
     const option =   {
@@ -85,6 +87,8 @@ function postMovie (movie) {
 }
 let post= document.getElementById('new-movie')
 post.addEventListener('submit', postMovie)
+
+
 
 //+++++++++++++++++++++++++++++++++++++++++++++PUT ME+++++++++++++++++++++++++++++++++++++++++++++
 
@@ -139,7 +143,7 @@ post.addEventListener('submit', postMovie)
             // fetch(url, option)
                 .then(response => response.json())
                 .then(function (data) {
-                    alert('movie was deleted')
+                    alert(`was deleted`)
                     console.log(' delete data', data);
                 })
                 .catch((error) => {
@@ -151,7 +155,14 @@ post.addEventListener('submit', postMovie)
 
 
 
-
+/* STEPS TO SEND A DELETE REQUEST
+* (1) GET Movie
+* (2) Click [x]
+* (3) deletes from view
+* (4) Sends a message to server with the ID
+*
+*
+* */
 
 
 
