@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,9 +18,39 @@
         rel="stylesheet">
     <!-- https://ionic.io/ionicons -->
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
+<!--loader css-->
+<style>
+    .loader {
+        border: 16px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 16px solid #ff0000;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+    }
+
+    /* Safari */
+    @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+
+
+
+
+
     <!-- TODO Add a dark mode theme  -->
     <header id="header">
         <figure><a href="#">Logo</a></figure>
@@ -38,6 +69,9 @@
         </div>
     </header>
 <!--    Search bar-->
+<<<<<<< HEAD
+    <input type="text" class="form-control" id="search-movieg" placeholder="Search Your Favorite Movies Here!">
+=======
     <form id="search">
     <input type="text" class="form-control" id="search-coffee" placeholder="Search Your Favorite Movies Here!">
         <button type="submit" id="btn"></button>
@@ -47,12 +81,44 @@
     <input type="text" class="form-control" id="input-movie" placeholder="What is the name of the movie?">
         <button type="submit" id="btn-1"></button>
     </form>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Movies Collections
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Movies</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Movies results here....
+
+            </div>
+            <div class="modal-footer">
+
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Exit</button>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>>
 
     <!-- TODO Make a responsive hero section, I need my linkedIn profile pic and the Iphone img asset  -->
     <main id="main w-100 h-100">
-        <section class="hero container debug-ol">
+        <section class="hero container debug-ol ">
 
 
+            <!--page loading-->
+            <div id = "onload">
+                <h2>Loading...</h2>
+                <div class="loader" >
+                </div>
+            </div>
 
 
 
@@ -154,6 +220,10 @@
     <script src="js/api.js"></script>
     <script src="js/header.js"></script>
     <script src="js/index.js"></script>
+
+
+
+
 </body>
 
 </html>
