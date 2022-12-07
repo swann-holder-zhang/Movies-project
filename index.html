@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+   
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,53 +19,94 @@
         rel="stylesheet">
     <!-- https://ionic.io/ionicons -->
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!-- TODO Add a dark mode theme  -->
-    <header id="header">
-        <figure><a href="#">Logo</a></figure>
-        <nav class="navbar_cont">
-            <ul class="navbar_ul">
-                <li><a href="#">About Me</a></li>
-                <li><a href="#">Knowledge Base</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+
+    
+   <!-- Button trigger modal -->
+   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Add a new movie...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+    <main id="main">
+
+      
+          
+          <!-- Modal -->
+         
+
+
+
+
+        <header id="header">
+            <figure><a href="#">Logo</a></figure>
+            <nav class="navbar_cont">
+                <ul class="navbar_ul">
+                    <li><a href="#">About Me</a></li>
+                    <li><a href="#">Knowledge Base</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="menu_cont" id="menu-cont">
+                <div class="menu-streak" id="ms1"></div>
+                <div class="menu-streak" id="ms2"></div>
+                <div class="menu-streak" id="ms3"></div>
+            </div>
+        </header>
+        <!-- Search Barb -->
+
+        <nav class="navbar bg-light s-movies d-flex flex-column">
+            <h1 class="fs-1 s-title">Unlimited movies, TV shows, and more.</h1>
+            <h2 class="fs-2 mt-4">Watch anywhere. Cancel anytime.</h2>
+            <div class="search-movies d-flex justify-content-center align-items-center flex-column gap-3">
+                <form class="d-flex s-form" role="search" id="search-movies">
+                    <input class="form-control me-2 s-bar" type="search" placeholder="Search for movies"
+                        aria-label="Search">
+                    <button class="find" type="submit">Find</button>
+                </form>
+                <button type="button" class="btn btn-primary addMovie" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    Add a Movie
+                </button>
+            </div>
         </nav>
 
-        <div class="menu_cont" id="menu-cont">
-            <div class="menu-streak" id="ms1"></div>
-            <div class="menu-streak" id="ms2"></div>
-            <div class="menu-streak" id="ms3"></div>
+
+        <!--page loading-->
+        <div id="onload">
+            <h2>Loading...</h2>
+            <div class="loader">
+            </div>
         </div>
-    </header>
-<!--    Search bar-->
-    <form id="search">
-    <input type="text" class="form-control" id="search-coffee" placeholder="Search Your Favorite Movies Here!">
-        <button type="submit" id="btn"></button>
-    </form>
-
-    <form id="new-movie">
-    <input type="text" class="form-control" id="input-movie" placeholder="What is the name of the movie?">
-        <button type="submit" id="btn-1"></button>
-    </form>
-
-    <!-- TODO Make a responsive hero section, I need my linkedIn profile pic and the Iphone img asset  -->
-    <main id="main w-100 h-100">
-        <section class="hero container debug-ol">
 
 
 
 
 
-
-
-
-        </section>
     </main>
 
-    <section class="projects">
-
+    <section class="banner1">
     </section>
 
 
@@ -154,6 +197,12 @@
     <script src="js/api.js"></script>
     <script src="js/header.js"></script>
     <script src="js/index.js"></script>
+
+        <!-- <script src="js/index.js"></script> -->
+        <script src="paul-prototype/db-demo.js"></script>
+        <script>
+
+        </script>
 </body>
 
 </html>

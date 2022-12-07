@@ -2,10 +2,13 @@
 * Any prerequisite functions/keys/variables
 * */
 
+<<<<<<< HEAD
 $(document).ready(function () {
     "use strict"
 
     alert("I am alive")
+=======
+>>>>>>> 55f60dfb4084a5659b62d4ea425f1bea65ab74d2
     const movieKey = MOVIE_API; //
     const url = "https://invented-fantastic-sense.glitch.me/movies";
 
@@ -14,6 +17,7 @@ $(document).ready(function () {
     * add search button
     * put an id on the search bar and get the input va
     *
+    * 
     * */
 
     //Btn search by either value of the search, title, year, or plot.
@@ -21,20 +25,10 @@ $(document).ready(function () {
         event.preventDefault();
         let search = $('#search').val()
         getMovies(search);
-
     });
 
 
-    /*PART (2)
-    * maybe create a function that renders a loading animation
-    *BONUS
-     */
-
-
-    /*PART (3)
-    * Fetch API to derive Search results
-    *
-    * */
+//+++++++++++++++++++++++++++++++++++++++++++++GET ME +++++++++++++++++++++++++++++++++++++++++++++
 
 
     const getMovies = (search) => {
@@ -53,6 +47,7 @@ $(document).ready(function () {
     }
 
 
+<<<<<<< HEAD
     function deleteMovie(event){
         alert("hello")
         event.preventDefault()
@@ -79,6 +74,8 @@ $(document).ready(function () {
 
     }
 
+=======
+>>>>>>> 55f60dfb4084a5659b62d4ea425f1bea65ab74d2
 
 
 
@@ -89,12 +86,15 @@ $(document).ready(function () {
             const { Title, Year, Poster, imdbID, Type } = data[i]
             html +=
                 `<div class="container" id="parent">
+<<<<<<< HEAD
                       <button type="button" data-dismiss="alert" class="btn-close remove-card" id="delete" onclick="deleteMovie(event);"></button> <br>
+=======
+                         <button type="button" class="btn-close remove-card" id="delete" onclick="deleteMovie(event)"></button> <br>
+>>>>>>> 55f60dfb4084a5659b62d4ea425f1bea65ab74d2
                          <img src="${Poster}">
                          <p>Movie name: ${Title}</p>
                          <p>Movie Year: ${Year}</p>
                          </div>`;
-
 
         }
        
@@ -103,11 +103,11 @@ $(document).ready(function () {
         
 
         return html
-
-
     }
 
+//+++++++++++++++++++++++++++++++++++++++++++++POST ME+++++++++++++++++++++++++++++++++++++++++++++
 
+<<<<<<< HEAD
     
 
     $("#delete").on("click", function(){
@@ -206,9 +206,105 @@ $(document).ready(function () {
     * (5) removing once clicked
     https://www.youtube.com/watch?v=0aWGMxrdUZE*
     * */
+=======
+function postMovie (movie) {
+    movie.preventDefault()
+
+    console.log("hello")
+    // movie.preventDefault()
+    const movieObj = {title: `${movie.target[0].value}`, body: '2'}
+    const option =   {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(movieObj),
+    };
+    console.log('post option', option)
+    fetch(url, option)
+        .then(response => response.json())
+        .then(function (data) {
+            alert('Post successful')
+            console.log('data', data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+
+}
+let post= document.getElementById('new-movie')
+post.addEventListener('submit', postMovie)
+
+//+++++++++++++++++++++++++++++++++++++++++++++PUT ME+++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+// function putMovie (id) {
+//     movie.preventDefault()
+//
+//     console.log("hello")
+//     // movie.preventDefault()
+//     const movieObj = {title: "Hello", body: '3'}
+//     const option =   {
+//         method: 'PUT',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(movieObj),
+//     };
+//     console.log('put option', option)
+//     fetch(`https://invented-fantastic-sense.glitch.me/movies/${id}`, option)
+//         .then(response => response.json())
+//         .then(function (data) {
+//             alert('movie was good to watch')
+//             console.log('data', data);
+//         })
+//         .catch((error) => {
+//             console.log(error);
+//         })
+//
+// }
+//
+//
+// let inputMovie= document.getElementById('new-movie')
+// inputMovie.addEventListener('submit', putMovie)
+
+//+++++++++++++++++++++++++++++++++++++++++++++DELETE ME+++++++++++++++++++++++++++++++++++++++++++++
+
+        function deleteMovie(search) {
+            search.preventDefault()
+            console.log("hello")
+            const movieObj = {title: "Hello", body: '1'}
+            const url = "https://invented-fantastic-sense.glitch.me/movies/"
+            const option = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(movieObj),
+            };
+            console.log('delete option', option)
+            fetch(`${url}${search}`, option)
+            // fetch(url, option)
+                .then(response => response.json())
+                .then(function (data) {
+                    alert('movie was deleted')
+                    console.log(' delete data', data);
+                })
+                .catch((error) => {
+                    alert('could not delete');
+                    console.log(error);
+                })
+
+        }
 
 
 
 
 
-});
+>>>>>>> 55f60dfb4084a5659b62d4ea425f1bea65ab74d2
+
+
+
+
+

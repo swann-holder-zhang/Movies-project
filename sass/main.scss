@@ -3,10 +3,13 @@
 @use "theme/theme";
 @use "layout/layout";
 @use 'components/logos';
+@use 'components/loader';
 @use 'components/buttons';
 @use 'components/header';
 @use 'components/hero';
 @use 'components/section1';
+@use 'components/banner';
+@use 'components/forms';
 @use 'components/footer';
 @use 'components/breakpoints';
 
