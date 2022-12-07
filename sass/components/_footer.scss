@@ -1,12 +1,15 @@
 
 .footer {
+    position: relative;
+    top: 100%;
     padding: var(--footer-padding);
     width: 100%;
-    min-height: 300px;
+    min-height: 500px;
     background-color: #000000;
     margin-top: auto;
     color: var(--font-color-1);
-
+    z-index: 10;
+    
     &-mission-cont {
         width: 200px;
         min-height: fit-content;

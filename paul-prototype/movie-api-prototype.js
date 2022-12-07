@@ -2,7 +2,6 @@
 * Any prerequisite functions/keys/variables
 * */
 
-alert("I am alive")
     const movieKey = MOVIE_API; //
     const url = "https://invented-fantastic-sense.glitch.me/movies";
 
@@ -11,6 +10,7 @@ alert("I am alive")
     * add search button
     * put an id on the search bar and get the input va
     *
+    * 
     * */
 
 //Btn search by either value of the search, title, year, or plot.

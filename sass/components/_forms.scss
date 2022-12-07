@@ -1,13 +1,24 @@
 .navbar {
     width: 80%;
+    background-color: transparent !important;
+    color: var(--font-color-1);
+    h1,h2 {
+        text-align: center;
+    }
 }
 
-.search-movies {
+.s-movies {
     margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    .s-form{
+
+        margin-top: 2rem;
+        .s-bar {
+                width: 200px;
+        }
+    }
+   
 }
-.s-bar{
-    width: 350px;
-}
+

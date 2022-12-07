@@ -6,7 +6,7 @@ header {
     align-items: center;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #000000;
+    background-color: var(--header-bg-color);
     /* outline: dashed red; */
 }
 .navbar_cont {
@@ -128,7 +128,10 @@ header {
     .msb {
         background-color: #000000;
     }
+    .navbar_cont {
+        display: none;
 
+    }
     .navbar_ul {
         display: none;
     }

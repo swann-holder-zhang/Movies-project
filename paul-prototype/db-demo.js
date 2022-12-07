@@ -4,7 +4,7 @@
     let form = document.getElementById("search-movies");
     form.addEventListener("submit", function (event) {
         event.preventDefault();
-
+        
 
         const reviewObj = {
             restaurant_id: 1,
