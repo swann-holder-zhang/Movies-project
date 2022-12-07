@@ -3,18 +3,20 @@
 
 
 
-    var delay = 2000; // delay time in milliseconds
-
-    var timeoutId = setTimeout(function () {
-        window.onload = function () {
-            console.log("works")
-            let loader = document.getElementById("onload");
-            loader.style.display = 'none';
-        }
-        ;
-    }, delay);
 
 
+   window.onload = setTimeout(function () {
+        console.log("works")
+        let loader = document.getElementById("onload");
+        loader.style.display = 'none'},2000);
+
+
+
+
+// window.onload = function () {
+//     console.log("works")
+//     let loader = document.getElementById("onload");
+//     loader.style.display = 'none';
 
 
 
@@ -133,4 +135,4 @@ const url = "https://invented-fantastic-sense.glitch.me/movies"; //Paul's DB
 
 
 
-})();
+})()

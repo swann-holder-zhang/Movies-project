@@ -61,26 +61,12 @@
             <div class="menu-streak" id="ms3"></div>
         </div>
     </header>
-<!--    Search bar-->
-<<<<<<< HEAD
-    <input type="text" class="form-control" id="search-movieg" placeholder="Search Your Favorite Movies Here!">
-=======
-    <form id="search">
-    <input type="text" class="form-control" id="search-coffee" placeholder="Search Your Favorite Movies Here!">
-        <button type="submit" id="btn"></button>
-    </form>
 
-    <form id="new-movie">
-    <input type="text" class="form-control" id="input-movie" placeholder="What is the name of the movie?">
-        <button type="submit" id="btn-1"></button>
-    </form>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Movies Collections
-</button>
+
+
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="odal-dialog modal-dialog-centered modal-dialog-scrollable" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -136,7 +122,7 @@
                     <input class="form-control me-2 s-bar" type="search" placeholder="Search for movies" aria-label="Search">
                     <button class="find" type="submit">Find</button>
                   </form>
-                  <button class="addMovie">Add a Movie</button>
+                  <button type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="addMovie">Add a Movie</button>
                 </div>
               </nav>
 >>>>>>> e84a7a14443f5de355b66636aa9e34cce3120b8f
