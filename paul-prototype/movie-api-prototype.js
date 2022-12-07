@@ -18,20 +18,10 @@
         event.preventDefault();
         let search = $('#search').val()
         getMovies(search);
-
     });
 
 
-    /*PART (2)
-    * maybe create a function that renders a loading animation
-    *BONUS
-     */
-
-
-    /*PART (3)
-    * Fetch API to derive Search results
-    *
-    * */
+//+++++++++++++++++++++++++++++++++++++++++++++GET ME +++++++++++++++++++++++++++++++++++++++++++++
 
 
     const getMovies = (search) => {
@@ -49,6 +39,10 @@
             })
     }
 
+
+
+
+
     let append = function (data) {
         let html = ``
         for (let i in data) {
@@ -56,60 +50,56 @@
             const {Title, Year, Poster, imdbID, Type} = data[i]
             html +=
                 `<div class="container" id="parent">
-                   <button type="button" data-dismiss="alert" class="btn-close remove-card" id="delete" onclick="deleteMovie(event);"></button> <br>
+                         <button type="button" class="btn-close remove-card" id="delete" onclick="deleteMovie(event)"></button> <br>
                          <img src="${Poster}">
                          <p>Movie name: ${Title}</p>
                          <p>Movie Year: ${Year}</p>
                          </div>`;
 
-
         }
         return html
-
-
     }
 
+//+++++++++++++++++++++++++++++++++++++++++++++POST ME+++++++++++++++++++++++++++++++++++++++++++++
 
-//
-    /*PART (3)
-    * maybe create a function that changes the method that updates options.
-    *
-     */
+function postMovie (movie) {
+    movie.preventDefault()
 
+    console.log("hello")
+    // movie.preventDefault()
+    const movieObj = {title: `${movie.target[0].value}`, body: '2'}
+    const option =   {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(movieObj),
+    };
+    console.log('post option', option)
+    fetch(url, option)
+        .then(response => response.json())
+        .then(function (data) {
+            alert('Post successful')
+            console.log('data', data);
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 
-// function option (method){
-//   const option =   {
-//         method: `${method.stringify()}`,
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         body: JSON.stringify(),
-//     };
-// }
+}
+let post= document.getElementById('new-movie')
+post.addEventListener('submit', postMovie)
 
-    /* Part (4)
-
-    * POST/DELETE request
-    *
-    * */
-// const postDeleteMovies = (search) => {
-//     fetch(url, option)
-//         .then(response => response.json())
-//         .then(function (data) {
-//             console.log('data', data);
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         })
-// }
+//+++++++++++++++++++++++++++++++++++++++++++++PUT ME+++++++++++++++++++++++++++++++++++++++++++++
 
 
-// function putMovie (movie) {
+
+// function putMovie (id) {
 //     movie.preventDefault()
 //
 //     console.log("hello")
 //     // movie.preventDefault()
-//     const movieObj = {title: "Hello", body: '1'}
+//     const movieObj = {title: "Hello", body: '3'}
 //     const option =   {
 //         method: 'PUT',
 //         headers: {
@@ -118,7 +108,7 @@
 //         body: JSON.stringify(movieObj),
 //     };
 //     console.log('put option', option)
-//     fetch(url, option)
+//     fetch(`https://invented-fantastic-sense.glitch.me/movies/${id}`, option)
 //         .then(response => response.json())
 //         .then(function (data) {
 //             alert('movie was good to watch')
@@ -129,57 +119,44 @@
 //         })
 //
 // }
+//
+//
 // let inputMovie= document.getElementById('new-movie')
 // inputMovie.addEventListener('submit', putMovie)
 
-    // $('#delete').on("click",
-    //     function deleteMovie(event) {
-    //         alert("hello")
-    //         event.preventDefault()
-    //         console.log("hello")
-    //         const movieObj = {title: "Hello", body: '1'}
-    //         const option = {
-    //             method: 'DELETE',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(movieObj),
-    //         };
-    //         console.log('delete option', option)
-    //         fetch(url, option)
-    //             .then(response => response.json())
-    //             .then(function (data) {
-    //                 alert('movie was deleted')
-    //                 console.log(' delete data', data);
-    //             })
-    //             .catch((error) => {
-    //                 alert('could not delete');
-    //                 console.log(error);
-    //             })
-    //
-    //     }
-    //     )
+//+++++++++++++++++++++++++++++++++++++++++++++DELETE ME+++++++++++++++++++++++++++++++++++++++++++++
+
+        function deleteMovie(search) {
+            search.preventDefault()
+            console.log("hello")
+            const movieObj = {title: "Hello", body: '1'}
+            const url = "https://invented-fantastic-sense.glitch.me/movies/"
+            const option = {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(movieObj),
+            };
+            console.log('delete option', option)
+            fetch(`${url}${search}`, option)
+            // fetch(url, option)
+                .then(response => response.json())
+                .then(function (data) {
+                    alert('movie was deleted')
+                    console.log(' delete data', data);
+                })
+                .catch((error) => {
+                    alert('could not delete');
+                    console.log(error);
+                })
+
+        }
 
 
-// let deleteMe = document.getElementsByElement('delete');
-// deleteMe.addEventListener('click', deleteMe)
 
-    /*
-    * NOTES:
-    *
-    * (1)  API Follow Along
-    * https://www.youtube.com/watch?v=67eJTr6_ylY
-    *
-    * (2) API WEBSITE
-    * https://www.omdbapi.com/
-    *
-    *
-    * (4) Maybe as a substitute for background
-    * https://codepen.io/sarazond/pen/LYGbwj
-    *
-    * (5) removing once clicked
-    https://www.youtube.com/watch?v=0aWGMxrdUZE*
-    * */
+
+
 
 
 
