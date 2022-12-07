@@ -7,6 +7,8 @@
 @use 'components/header';
 @use 'components/hero';
 @use 'components/section1';
+@use 'components/banner';
+@use 'components/forms';
 @use 'components/footer';
 @use 'components/breakpoints';
 
@@ -15,4 +17,7 @@
 }
 .debug-bg {
     background-color: blue;
+}
+.tst{
+    background: red;
 }
