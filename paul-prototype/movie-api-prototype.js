@@ -34,8 +34,8 @@ function promiseState(promise, callback) {
     $('#submit-btn').click((event) => {
         event.preventDefault();
         let search = $('#search').val()
-        getOmdMovies(search);
-        // getGlitchMovies(search);
+        // getOmdMovies(search);
+        getGlitchMovies(search);
 
 
     });
@@ -126,7 +126,6 @@ function postMovie (movie) {
 
 }
 let post= document.getElementById('new-movie')
-post.addEventListener('submit', postMovie)
 
 
 //GET MOVIES IN 'DATABASE'
@@ -188,36 +187,62 @@ function putMovie (id) {
 
 
 let inputMovie= document.getElementById('new-movie')
-inputMovie.addEventListener('submit', putMovie)
 
 //+++++++++++++++++++++++++++++++++++++++++++++DELETE ME+++++++++++++++++++++++++++++++++++++++++++++
+function deleteMovie(title,year) {
 
-        function deleteMovie(search) {
-            search.preventDefault()
-            console.log("delete works!")
-            const movieObj = {title: "Hello", body: '1'}
-            const url = "https://invented-fantastic-sense.glitch.me/movies/"
-            const option = {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(movieObj),
-            };
-            console.log('delete option', option)
-            fetch(`${url}${search}`, option)
-            // fetch(url, option)
-                .then(response => response.json())
-                .then(function (data) {
-                    alert(`was deleted`)
-                    console.log(' delete data', data);
-                })
-                .catch((error) => {
-                    alert('could not delete');
-                    console.log(error);
-                })
+    title = title.toString().toUpperCase();
+    console.log(title, year);
+    fetch(`https://invented-fantastic-sense.glitch.me/movies`)
+        .then(response => response.json())//then... return json
+        .then(function (data) { //then return data
+            console.log('getGlitchMovies: ', data.filter(function(item){
 
-        }
+                return item.title.toString().toUpperCase() === title;
+                // && item.year === search.year;  //DEVELOP MORE HERE
+            }));
+
+
+
+
+            // let movie = data.Search.title;
+            // let appendMovies = append(movie)
+            // $('#append-movies').html(appendMovies)  //I want to take the results and place it in the div w/ ID of movies
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+
+}
+
+
+        // function deleteMovie(search) {
+        //     search.preventDefault()
+        //     console.log("delete works!")
+        //     const movieObj = {title: "Hello", body: '1'}
+        //     const url = "https://invented-fantastic-sense.glitch.me/movies/"
+        //     const option = {
+        //         method: 'DELETE',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(movieObj),
+        //     };
+        //     console.log('delete option', option)
+        //     fetch(`${url}${search}`, option)
+        //     // fetch(url, option)
+        //         .then(response => response.json())
+        //         .then(function (data) {
+        //             // alert(`was deleted`)
+        //             console.log(' delete data', data);
+        //         })
+        //         .catch((error) => {
+        //             // alert('could not delete');
+        //             console.log(error);
+        //         })
+        //
+        // }
+inputMovie.addEventListener('submit', postMovie)
 
 
 
