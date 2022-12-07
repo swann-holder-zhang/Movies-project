@@ -1,6 +1,27 @@
 /*PART (0)
 * Any prerequisite functions/keys/variables
 * */
+function promiseState(promise, callback) {
+    // Symbols and RegExps are never content-equal
+    var uniqueValue = window['Symbol'] ? Symbol('unique') : /unique/
+
+    function notifyPendingOrResolved(value) {
+        if (value === uniqueValue) {
+            return callback('pending')
+        } else {
+            return callback('fulfilled')
+        }
+    }
+
+    function notifyRejected(reason) {
+        return callback('rejected')
+    }
+
+    var race = [promise, Promise.resolve(uniqueValue)]
+    Promise.race(race).then(notifyPendingOrResolved, notifyRejected)
+}
+
+
 
 // $( document ).ready(function() {
     const movieKey = MOVIE_API; //
@@ -21,7 +42,9 @@
 
 
     const getMovies = (search) => {
-        fetch(`https://www.omdbapi.com?apikey=${movieKey}&s=${search}`)
+        console.log(search);
+         let promise = fetch(`https://www.omdbapi.com?apikey=${movieKey}&s=${search}`)
+            // if (promise ===)
             .then(response => response.json())//then... return json
             .then(function (data) { //then return data
                 console.log('get data', data);
