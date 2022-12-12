@@ -1,0 +1,16 @@
+.modal-content {
+    color: #ffffff;
+    border-radius: 0;
+    height: 500px;
+    .modal-footer {
+        border-top: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal-header {
+        border-bottom: none;
+    }
+}
+
+// #171515
