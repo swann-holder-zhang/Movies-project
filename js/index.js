@@ -1,6 +1,14 @@
 (function () {
     "use strict"
-    let svgs = document.getElementsByTagName("svg")
+    let menu = document.getElementById("menu-cont");
+    menu.addEventListener("keydown",function(e){
+        console.log(e.key);
+        if (e.key === "Enter"){
+            menu.click();
+        }
+    })
+
+
     const btn = document.createElement('button');
     let i = 0;
 
@@ -36,12 +44,11 @@
         // h2.textContent
         let popopt = {
             html: true,
-            content:"<img width='100px' src='assets/US-en-20221128-popsignuptwoweeks-perspective_alpha_website_medium.jpeg' >",
+            content:"<img width='150px' src='assets/US-en-20221128-popsignuptwoweeks-perspective_alpha_website_medium.jpeg' >",
             placement: "left",
             trigger: "hover focus"
         }
         const popover = new bootstrap.Popover(myMovies,popopt);
-
         let modContainer = document.createElement("div");
         modContainer.classList.add("mod");
 
@@ -92,17 +99,13 @@
         modContainer.appendChild(edit);
         modContainer.appendChild(like);
         modContainer.appendChild(del);
-
         myMovies.appendChild(h2);
         myMovies.appendChild(modContainer);
-        let rename = document.createElement("input")
 
-        myMovies.addEventListener("click", function(){
-            console.log('hello');
-            popover.innerHTML = h2.textContent;
-            
-            
-        })
+
+        let rename = document.createElement("input")
+        rename.classList.add("rename")
+        rename.setAttribute("placeholder",h2.textContent)
         // +++++++ EDIT +++++++++++++++++++++++++++++
         edit.addEventListener("click", function () {
             h2.style.display = "none";
@@ -138,6 +141,13 @@
             rename.remove();
             h2.style.display = "flex";
             myMovies.insertBefore(h2, modContainer)
+        })
+        myMovies.addEventListener("dblclick", function(){
+            console.log(' ln 109 hello');
+            h2.style.display = "none";
+            myMovies.insertBefore(rename, modContainer)
+            
+            
         })
 
         // Bootstrap Hovering Tooltip

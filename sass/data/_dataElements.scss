@@ -24,6 +24,7 @@
         border: none;
         height: 3rem;
     }
+   
 }
 .myMovies:hover {
     // outline: solid .5px gray;
@@ -46,6 +47,7 @@
     animation-duration: .3s;
 }
 .popover{
+    width: fit-content;
     padding: 0;
     --popover-max-width: 50px;
 

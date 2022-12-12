@@ -1,6 +1,10 @@
 
             
-
+.offcanvas,.offcanvas-body{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    overflow: scroll;
+}
 .offcanvas {
     --bs-offcanvas-padding-x: 0rem;
     --bs-offcanvas-padding-y: 0rem;
@@ -9,7 +13,8 @@
             
             color: #ffffff;
         }
-        height: 72px;
+        min-height: 72px;
+        margin-bottom: 1rem;
         background-color: #171515;
         padding-top: 16px;
         padding-right: 30px;
@@ -22,6 +27,8 @@
             color: #ffffff;
         }
         .offcanvas-body {
+            display: flex !important;
+            justify-content: center  !important;
             padding: 0% !important;
         }
     }

@@ -82,8 +82,8 @@ a:hover {
   }
 }
 button.find, button.addMovie, a:visited {
-  background-color: red !important;
-  border: solid rgb(241, 99, 99) 0.1px !important;
+  background-color: rgb(241, 24, 24) !important;
+  border: solid rgb(255, 29, 29) 0.1px !important;
   color: var(--font-color-1);
   border-radius: 0.5rem;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -92,6 +92,11 @@ button.find, button.addMovie, a:visited {
 button.addMovie {
   width: 150px;
   height: 3rem;
+  transition: all 0.2s ease;
+}
+
+button.find, button.addMovie:hover {
+  background-color: rgb(255, 0, 0) !important;
 }
 
 button.find {
@@ -99,12 +104,19 @@ button.find {
   height: 2.5rem;
 }
 
+.offcanvas, .offcanvas-body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow: scroll;
+}
+
 .offcanvas {
   --bs-offcanvas-padding-x: 0rem;
   --bs-offcanvas-padding-y: 0rem;
 }
 .offcanvas .offcanvas-header {
-  height: 72px;
+  min-height: 72px;
+  margin-bottom: 1rem;
   background-color: #171515;
   padding-top: 16px;
   padding-right: 30px;
@@ -121,6 +133,8 @@ button.find {
   color: #ffffff;
 }
 .offcanvas .offcanvas-header .offcanvas-body {
+  display: flex !important;
+  justify-content: center !important;
   padding: 0% !important;
 }
 
@@ -186,6 +200,7 @@ header {
   margin: 0;
   height: 3rem;
   border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .tbs .mym {
   display: flex;
@@ -334,6 +349,7 @@ header {
 }
 
 .popover {
+  width: fit-content;
   padding: 0;
   --popover-max-width: 50px;
 }
