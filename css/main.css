@@ -110,6 +110,10 @@ button.find {
   padding-right: 30px;
   padding-left: 30px;
 }
+.offcanvas .offcanvas-header ion-icon.fs-3 {
+  font-size: 5rem;
+  color: #ffffff;
+}
 .offcanvas .offcanvas-header .offcanvas-title {
   color: #ffffff;
 }

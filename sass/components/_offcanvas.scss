@@ -5,6 +5,10 @@
     --bs-offcanvas-padding-x: 0rem;
     --bs-offcanvas-padding-y: 0rem;
     .offcanvas-header{
+        ion-icon.fs-3{
+            
+            color: #ffffff;
+        }
         height: 72px;
         background-color: #171515;
         padding-top: 16px;

@@ -14,7 +14,7 @@
     let offcanvas = document.getElementById("offc");
     let test = document.getElementById("test");
 
-    // TODO Turn Event into a separate function called CreateElement params should me user type input 
+    // TODO Turn Event function into a separate function called CreateElement params should me user type input 
     
     // Here for every click js creates one element and uses bootstap ion-icon attributes to render elements and icons 
     test.addEventListener("click", function () {
@@ -59,12 +59,26 @@
 
         let del = document.createElement("ion-icon");
         del.setAttribute("name", "trash-outline");
-        del.setAttribute("data-bs-title", "Delete");
-        del.setAttribute("id", "edit");
+        del.setAttribute("id", "delete");
+        let delOptions = {
+        html: true,
+        content:"Delete",
+        placement: "bottom",
+        trigger: "hover focus"
+    }
+    const delpopover = new bootstrap.Popover(del,delOptions);
+
+
+        del.addEventListener("click",function(){
+            myMovies.remove();
+            popover.dispose();
+            delpopover.dispose();
+            // window.location.href= "#offc";
+        })
 
         // class="myMovies" id="myMovies"  data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover"
 
-        let icons = [edit, like, del];
+        let icons = [edit, like];
         icons.map(icon => {
 
             icon.setAttribute("type", "button");
@@ -107,18 +121,11 @@
                 }
             })
             // +++++++ EDIT +++++++++++++++++++++++++++++
-            // TODO Turn Event into a separate function
-
-
-
 
             rename.classList.add("rename");
             rename.setAttribute("placeholder", h2.textContent);
             rename.setAttribute("type", "search");
             myMovies.insertBefore(rename, modContainer);
-
-
-
 
 
         })

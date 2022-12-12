@@ -45,5 +45,10 @@
     animation-name: frame;
     animation-duration: .3s;
 }
+.popover{
+    padding: 0;
+    --popover-max-width: 50px;
+
+}
 
 
