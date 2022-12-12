@@ -2,7 +2,7 @@
     "use strict"
     let svgs = document.getElementsByTagName("svg")
     const btn = document.createElement('button');
-
+    let i = 0;
 
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
@@ -31,8 +31,8 @@
         myMovies.setAttribute("data-bs-content","hello")
 
         let h2 = document.createElement("h2");
-
-        h2.innerText = "Movie";
+        i = i+1;
+        h2.innerText = `Movie${i}`;
         // h2.textContent
         let popopt = {
             html: true,
