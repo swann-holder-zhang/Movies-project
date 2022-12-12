@@ -31,4 +31,19 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     cursor: pointer;
 }
+@keyframes frame {
+    0% {font-size: 26px;}
+    0% {font-size: 26px;}
+  25%  {font-size: 30px;}
+  50%  {font-size: 30px;}
+  75%  {font-size: 27px;}
+  100% {font-size: 26px;}
+}
+
+.like {
+    color: red;
+    animation-name: frame;
+    animation-duration: .3s;
+}
+
 

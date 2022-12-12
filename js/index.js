@@ -38,7 +38,7 @@
             content:"<img width='100px' src='assets/US-en-20221128-popsignuptwoweeks-perspective_alpha_website_medium.jpeg' >",
             placement: "left",
             trigger: "hover focus"
-        } 
+        }
         const popover = new bootstrap.Popover(myMovies,popopt);
 
         let modContainer = document.createElement("div");
@@ -53,6 +53,9 @@
         like.setAttribute("name", "heart");
         like.setAttribute("data-bs-title", "Like");
         like.setAttribute("id", "edit");
+        like.addEventListener("click", function(){
+            like.classList.toggle("like");
+        })
 
         let del = document.createElement("ion-icon");
         del.setAttribute("name", "trash-outline");
