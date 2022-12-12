@@ -1,5 +1,6 @@
 (function () {
     "use strict"
+    let svgs = document.getElementsByTagName("svg")
     const btn = document.createElement('button');
 
 
