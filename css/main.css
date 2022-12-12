@@ -111,7 +111,6 @@ button.find {
   padding-left: 30px;
 }
 .offcanvas .offcanvas-header ion-icon.fs-3 {
-  font-size: 5rem;
   color: #ffffff;
 }
 .offcanvas .offcanvas-header .offcanvas-title {
@@ -179,6 +178,42 @@ header {
 }
 .navbar h1, .navbar h2 {
   text-align: center;
+}
+
+.tbs {
+  background-color: #171515;
+  padding: 0%;
+  margin: 0;
+  height: 3rem;
+  border-radius: 1rem;
+}
+.tbs .mym {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0%;
+  margin: 0;
+  height: 100%;
+  width: 50%;
+  cursor: pointer;
+  border-radius: 1rem 0 0 1rem;
+}
+.tbs .mym:hover {
+  background: -webkit-linear-gradient(270deg, hsl(0deg, 8%, 10%) 0%, hsl(0deg, 7%, 30%) 100%);
+}
+.tbs .om {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0%;
+  margin: 0;
+  height: 100%;
+  width: 50%;
+  cursor: pointer;
+  border-radius: 0 1rem 1rem 0;
+}
+.tbs .om:hover {
+  background: var(--header-bg-color);
 }
 
 .s-movies {
@@ -263,7 +298,7 @@ header {
 }
 .myMovies .rename {
   border: none;
-  height: 1.5rem;
+  height: 3rem;
 }
 
 .myMovies:hover {
@@ -296,6 +331,11 @@ header {
   color: red;
   animation-name: frame;
   animation-duration: 0.3s;
+}
+
+.popover {
+  padding: 0;
+  --popover-max-width: 50px;
 }
 
 .debug-ol {

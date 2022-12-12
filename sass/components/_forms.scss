@@ -6,7 +6,41 @@
         text-align: center;
     }
 }
-
+.tbs {
+    background-color: #171515;
+    padding: 0%;
+    margin: 0;
+    height: 3rem;
+    border-radius: 1rem;
+    .mym {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0%;
+        margin: 0;
+        height: 100%;
+        width: 50%;
+        cursor: pointer;
+        border-radius: 1rem 0 0 1rem;
+    }
+    .mym:hover {
+        background: -webkit-linear-gradient(270deg, hsla(0, 8%, 10%, 1) 0%, hsla(0, 7%, 30%, 1) 100%);
+    }
+    .om {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0%;
+        margin: 0;
+        height: 100%;
+        width: 50%;
+        cursor: pointer;
+        border-radius: 0 1rem 1rem 0;
+    }
+    .om:hover {
+        background:var(--header-bg-color);
+    }
+}
 .s-movies {
     margin-top: 6rem;
     display: flex;
