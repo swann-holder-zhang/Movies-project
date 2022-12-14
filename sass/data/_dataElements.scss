@@ -53,4 +53,21 @@
 
 }
 
+.content-render-wrapper{
+    margin-top: 2rem;
+    width: 100%;
+    min-height:fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-cont {
+    width: 90%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
 
