@@ -26,22 +26,43 @@
 <body>
 
 
-    <!-- Button trigger modal -->
+    <!-- Modal-->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Add a Movie</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <form action=""></form>
-                </div>
-                <div class="modal-footer">
+                <div class="modal-body d-flex 
+                flex-column 
+                justify-content-start
+                align-items-center">
 
+                    <form tabindex="2" class="
+                    w-100
+                    s-form 
+                    d-flex 
+                    flex-column 
+                    justify-content-center 
+                    align-items-center
+                    gap-3" 
+                    role="search" 
+                    id="addM">
+                    <!-- ADD MOVIE SECTION -->
 
-                    <button type="button" data-bs-dismiss="modal" class="addMovie">Save</button>
+                        <input class="form-control me-2 s-bar w-75" type="search" id="input" placeholder="What is the name of your the movie?"
+                            aria-label="Search">
+                        <input class="form-control me-2 s-bar w-75" type="number"   maxlength="4" placeholder="YYYY" id="input" placeholder="Search for movies"
+                            aria-label="Search">
+                        <!-- <input class="form-control me-2 s-bar" type="" id="input" placeholder="Search for movies"
+                            aria-label="Search"> -->    
+                        <div class="modal-footer">
+                            <button type="submit" data-bs-dismiss="modal" class="addMovie">Save</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
@@ -60,10 +81,9 @@
             </button>
         </div>
         <div class="offcanvas-body pt-3 " id="offc">
-            <button class="addMovie mb-4 mx-left-3 fs-1 " id="test">
+            <!-- <button class="addMovie mb-4 mx-left-3 fs-1 " id="test">
                 <ion-icon name="add-outline"></ion-icon>
-            </button>
-
+            </button> -->
         </div>
     </div>
 
@@ -71,14 +91,6 @@
 
 
     <main id="main">
-
-
-
-        <!-- Modal -->
-
-
-
-
 
         <header id="header">
             <figure tabindex="0"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 276.742"
@@ -102,13 +114,11 @@
             <h1 class="fs-1 s-title">Unlimited movies, TV shows, and more.</h1>
             <h2 class="fs-2 mt-4">Watch anywhere. Cancel anytime.</h2>
             <div class="search-movies d-flex justify-content-center align-items-center flex-column gap-3">
-
+               
                 <form tabindex="2" class="d-flex s-form" role="search" id="search-movies">
-
                     <input class="form-control me-2 s-bar" type="search" id="input" placeholder="Search for movies"
                         aria-label="Search">
                     <button class="find" type="submit">Find</button>
-
                 </form>
 
                 <div type="button" class="tbs w-100 d-flex justify-content-center align-items-center"
@@ -245,8 +255,10 @@
     <!-- <script src="js/loader.js"></script> -->
     <!-- <script src="js/movie-api-prototype.js"></script> -->
     <!-- <script src="js/api.js"></script> -->
+    <script src="js/post.js"></script>
     <script src="js/append.js"></script>
     <script src="js/search-movies.js"></script>
+    <script src="js/get.js"></script>
     <script src="js/index.js"></script>
 </body>
 

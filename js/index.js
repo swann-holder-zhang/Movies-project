@@ -26,25 +26,52 @@
     // TODO Turn Event function into a separate function called CreateElement params should me user type input 
     
     // Here for every click js creates one element and uses bootstap ion-icon attributes to render elements and icons 
-    test.addEventListener("click", function () {
+    window.addEventListener("load", function () {
        
+       
+
+            fetch(`https://freckle-fuzzy-objective.glitch.me/movies`)
+            .then(response => response.json())
+                .then(function (data) {
+                    console.log(data);
+                    
+                    data.forEach(movie =>{
+                        let t = movie.title;
+                        let y = movie.year;
+                        offcanvas.appendChild(movieInterface(t,y))
+
+                    })
+                    
+
+                }).catch((error) => {
+                    // loadingAnimation();
+                    console.log(error);
+                })// end fetch
+        
+
+        // Bootstrap Hovering Tooltip
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    })
+
+
+    function movieInterface(title,year){
+
         let myMovies = document.createElement("div");
         
-        
-
-        
-
         myMovies.classList.add("myMovies");
         myMovies.setAttribute("id", "myMovies");
         myMovies.setAttribute("data-bs-content","hello")
 
         let h2 = document.createElement("h2");
         i = i+1;
-        h2.innerText = `Movie${i}`;
+        // h2.innerText = `Movie${i}`;
+        h2.innerText = `${title} ${year}`;
         // h2.textContent
         let popopt = {
             html: true,
-            content:"<img width='150px' src='assets/US-en-20221128-popsignuptwoweeks-perspective_alpha_website_medium.jpeg' >",
+            content:"<img width='150px' src='assets/defualtMovie.png' >",
             placement: "left",
             trigger: "hover focus"
         }
@@ -134,7 +161,6 @@
 
         })
         // here it appends myMovies which has children of modContainer and h2
-        offcanvas.appendChild(myMovies);
         myMovies.addEventListener("mouseleave", function () {
             console.log('mouseleave!');
 
@@ -148,13 +174,14 @@
             myMovies.insertBefore(rename, modContainer)
             
             
-        })
+        }) 
+        // ^this is all just UI/UX manipulation no API Calls
 
-        // Bootstrap Hovering Tooltip
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
-    })
+        return myMovies;
+
+    }
+   
 
 
 
