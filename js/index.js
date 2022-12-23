@@ -61,8 +61,10 @@
     myMovies.setAttribute("data-bs-content", "hello");
 
     let h2 = document.createElement("h2");
+    let span = document.createElement("span");
     // h2.innerText = `Movie${i}`;
-    h2.innerText = `${title} ${year}`;
+    h2.innerText = `${title}`;
+    span.innerText = `Year:${year}`;
     // h2.textContent
     let popopt = {
       html: true,
@@ -136,6 +138,7 @@
     modContainer.appendChild(edit);
     modContainer.appendChild(like);
     modContainer.appendChild(del);
+    // myMovies.appendChild(span);
     myMovies.appendChild(h2);
     myMovies.appendChild(modContainer);
 
@@ -143,65 +146,150 @@
     rename.classList.add("rename");
     rename.setAttribute("placeholder", h2.textContent);
     // +++++++ EDIT +++++++++++++++++++++++++++++
-    edit.addEventListener("click", function () {
-      h2.style.display = "none";
-      let options = { focusVisible: true };
-      rename.focus(options);
-      // rename.focus();
+     
 
-      // rename.setAttribute("tabindex", "-2");
-      rename.addEventListener("keydown", function (e) {
-        rename.focus();
-        // console.log(e.key);
-        console.log(e.target.value);
-        let movieObj = {
-            title: e.target.value
-        }
+     
+    
 
+    edit.addEventListener("click", function(){
 
-        let editOption = {
+        h2.style.display = "none";
+        let options = { focusVisible: true };
+        rename.focus(options);
+  
+        rename.addEventListener("keydown", (e) => {
+          rename.focus();
+          let editedText = "";
+          let editedObj = {};
+          if (e.target.value == "") {
+            editedText = `${title} ${year}`;
+          } else {
+            editedText = e.target.value;
+  
+            editedObj = {
+              title: editedText,
+            };
+          }
+          let editOption = {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(movieObj),
+            body: JSON.stringify(editedObj),
           };
-        fetch(`https://freckle-fuzzy-objective.glitch.me/movies/${myMovies.id}`,editOption)
-          .then((response) => response.json())
-          .then(function (data) {
-            console.log("patch: ", data);
-          })
-          .catch((error) => {
-            // loadingAnimation();
-            console.log(error);
-          }); // end fetch
-        if (e.key === "Escape") {
-          rename.remove();
-          h2.style.display = "flex";
-          myMovies.insertBefore(h2, modContainer);
-        }
-      });
-      // +++++++ EDIT +++++++++++++++++++++++++++++
+          fetch(
+            `https://freckle-fuzzy-objective.glitch.me/movies/${myMovies.id}`,
+            editOption
+          )
+            .then((response) => response.json())
+            .then(function (data) {
+              console.log("patch: ", data);
+              rename.innerText = e.target.value;
+              h2.innerText = e.target.value;
 
-      rename.classList.add("rename");
-      rename.setAttribute("placeholder", h2.textContent);
-      rename.setAttribute("type", "search");
-      myMovies.insertBefore(rename, modContainer);
-    });
-    // here it appends myMovies which has children of modContainer and h2
-    myMovies.addEventListener("mouseleave", function () {
-      console.log("mouseleave!");
+            })
+            .catch((error) => {
+              // loadingAnimation();
+              console.log(error);
+            }); // end fetch
+  
+          if (e.key === "Escape") {
+            rename.remove();
+            h2.style.display = "flex";
+            myMovies.insertBefore(h2, modContainer);
+          }
+         
+  
+           // here it appends myMovies which has children of modContainer and h2
+       
+  
+        });
+        rename.classList.add("rename");
+        rename.setAttribute("placeholder", h2.textContent);
+        rename.setAttribute("type", "search");
+        myMovies.insertBefore(rename, modContainer);
 
-      rename.remove();
-      h2.style.display = "flex";
-      myMovies.insertBefore(h2, modContainer);
+        myMovies.addEventListener("mouseleave", function () {
+            console.log("mouseleave!");
+    
+            rename.remove();
+            h2.style.display = "flex";
+            myMovies.insertBefore(h2, modContainer);
+        });
+
+         
+
     });
     myMovies.addEventListener("dblclick", function () {
-      console.log(" ln 109 hello");
-      h2.style.display = "none";
-      myMovies.insertBefore(rename, modContainer);
+        console.log(" ln 109 hello");
+        h2.style.display = "none";
+        myMovies.insertBefore(rename, modContainer);
+        rename.addEventListener("keydown", (e) => {
+            rename.focus();
+            let editedText = "";
+            let editedObj = {};
+            if (e.target.value == "") {
+              editedText = `${title} ${year}`;
+            } else {
+              editedText = e.target.value;
+    
+              editedObj = {
+                title: editedText,
+              };
+            }
+            let editOption = {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(editedObj),
+            };
+            fetch(
+              `https://freckle-fuzzy-objective.glitch.me/movies/${myMovies.id}`,
+              editOption
+            )
+              .then((response) => response.json())
+              .then(function (data) {
+                console.log("patch: ", data);
+                rename.innerText = e.target.value;
+                h2.innerText = e.target.value;
+  
+              })
+              .catch((error) => {
+                // loadingAnimation();
+                console.log(error);
+              }); // end fetch
+    
+            if (e.key === "Escape") {
+              rename.remove();
+              h2.style.display = "flex";
+              myMovies.insertBefore(h2, modContainer);
+            }
+           
+    
+             // here it appends myMovies which has children of modContainer and h2
+         
+    
+          });
+          
+        myMovies.addEventListener("mouseleave", function () {
+            console.log("mouseleave!");
+    
+            rename.remove();
+            h2.style.display = "flex";
+            myMovies.insertBefore(h2, modContainer);
+        });
+      });
+      myMovies.addEventListener("mouseleave", function () {
+        console.log("mouseleave!");
+
+        rename.remove();
+        h2.style.display = "flex";
+        myMovies.insertBefore(h2, modContainer);
     });
-    // ^this is all just UI/UX manipulation no API Calls
+    // +++++++ EDIT +++++++++++++++++++++++++++++
+   
+      // ^this is all just UI/UX manipulation no API Calls
 
     return myMovies;
   }
