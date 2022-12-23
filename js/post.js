@@ -1,6 +1,8 @@
 "use strict"
 let url = "https://freckle-fuzzy-objective.glitch.me/movies";
 let form2 = document.getElementById("addM");
+let minm = 10000;
+let maxm = 999999999;
 const postMovie = (event,y,p) => {
     let Title = ""
     let  Year = ""
@@ -42,10 +44,12 @@ const postMovie = (event,y,p) => {
         exit(1);
     }
 
-    
+    let random = Math.floor(Math
+        .random() * (maxm - minm + 1)) + minm;
     const movieObj = {
         title: Title,
         year: Year,
+        id: random,
         // TODO Change this path if needed based on your file structure
         poster: p
     };
